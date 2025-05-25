@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  
   const pokemones = [
     {
       id: 1,
@@ -259,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".altura").textContent = `${pokemon.altura} m`;
   document.querySelector(".habilidades").textContent = pokemon.habilidades.join(", ");
 
+  
   
   document.querySelector(".hp").textContent = pokemon.hp;
   document.querySelector(".ataque").textContent = pokemon.ataque;
