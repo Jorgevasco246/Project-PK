@@ -89,6 +89,11 @@ a:hover {
     margin: 30px;
 }
 
+.todos-pokemones{
+    display: flex;
+    color: white;
+    
+}
 .horizontal-text {
     display: flex;
     align-items: center;
@@ -138,8 +143,10 @@ a:hover {
     color: white;
     padding-left: 10px;
     padding-right: 10px;
+    
 }
 
+.favoritoss2{ align-items: center;}
 .favorite:hover {
     background-color: green;
 }

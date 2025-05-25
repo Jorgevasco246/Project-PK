@@ -8,6 +8,7 @@ const usuarios = [
         favoritePokemon: {
             // VALENTINA PONE EL TEMA DE LOS POKEMONES FAV (PUEDEN SER CUALQUIERA) (SON SOLO 3)CON LA FUNCIÓN QUE LLEVAN
         }
+        
     },
     {
         username: "Valentina",
