@@ -59,4 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+<<<<<<<<< Temporary merge branch 1
 });
+=========
+});
+>>>>>>>>> Temporary merge branch 2

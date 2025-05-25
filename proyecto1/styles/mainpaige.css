@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 * {
     margin: 0;
     padding: 0;
@@ -177,7 +177,6 @@ nav {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Estilos de la sección de Pokémon favoritos */
 .favorite-pokemon {
     padding: 80px 0;
 
@@ -344,7 +343,6 @@ nav {
     cursor: pointer;
 }
 
-/* Estilos del formulario de suscripción */
 .subscribe {
     background-image: url('../assets/fondo\ ultimo.png ');
     background-size: cover;

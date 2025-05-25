@@ -5,7 +5,7 @@ function createCard(name, imageURL, tipos, index) {
   div.classList.add("pokem");
 
   const nombre = document.createElement("h3");
-  nombre.textContent = ` ${name.charAt(0).toUpperCase() + name.slice(1)}`;
+  nombre.textContent = `${name.charAt(0).toUpperCase() + name.slice(1)}`;
 
   const imagen = document.createElement("img");
   imagen.src = imageURL;
@@ -15,19 +15,27 @@ function createCard(name, imageURL, tipos, index) {
   descripcion.textContent = `${name} is a ${tipos.join('/')} type Pokémon.`;
 
   const botonInfo = document.createElement("button");
-  botonInfo.textContent = "MORE INFORMATION";
-  botonInfo.onclick = () => alert(`Aquí podrías mostrar más info de ${name}`);
+  botonInfo.textContent = "More information";
+  botonInfo.onclick = () => {
+    // Guardar la información del Pokémon seleccionado en localStorage
+    const pokemonSeleccionado = {
+      id: index,
+      nombre: name.charAt(0).toUpperCase() + name.slice(1),
+      tipo: tipos
+    };
+    localStorage.setItem("pokemonSeleccionado", JSON.stringify(pokemonSeleccionado));
+    window.location.href = "producto.html";
+  };
 
-  const botonRemove = document.createElement("button");
-  botonRemove.textContent = "ADD TO FAVORITES";
-  botonRemove.classList.add("favoritos");
- 
+  const botonFav = document.createElement("button");
+  botonFav.textContent = "Add to favorites";
+  botonFav.classList.add("favoritos");
 
-  div.append(imagen, nombre, descripcion, botonInfo, botonRemove);
+  div.append(imagen, nombre, descripcion, botonInfo, botonFav);
   return div;
 }
 
-for (let index = 1; index <= 151; index++) {
+for (let index = 1; index <= 15; index++) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${index}`)
     .then(res => res.json())
     .then(pokemon => {
