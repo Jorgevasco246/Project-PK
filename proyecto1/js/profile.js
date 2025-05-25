@@ -1,7 +1,5 @@
-// js/profile.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Selectores para tu HTML de perfil
+    // Selectores para tu HTML
     const userNameDisplay = document.getElementById('profileUsername');
     const fullNameDisplay = document.getElementById('profileFullName');
     const ageDisplay = document.getElementById('profileAge');
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (emailDisplay && usuarioLogueado.email) {
             emailDisplay.textContent = usuarioLogueado.email;
         }
-        // ... (resto de tu lógica para mostrar datos)
     } else {
         window.location.href = 'login.html';
     }

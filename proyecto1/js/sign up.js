@@ -1,7 +1,7 @@
 // js/sign up.js
 
-const formulario = document.querySelector('form');
-formulario.setAttribute('id', 'registroForm'); // Esto no es estrictamente necesario si ya tienes el id en el HTML
+const formulario = document.querySelector('form')
+formulario.setAttribute('id', 'registroForm')
 
 const registroForm = document.getElementById('registroForm');
 
@@ -14,7 +14,7 @@ function registrarUsuario(e) {
     const usernameValor = document.getElementById('Username').value.trim();
     const passwordValor = document.getElementById('password').value;
 
-    // Validación básica de campos vacíos
+    // Validacionnnnnnnnnnnn
     if (!nombreValor || !apellidoValor || !emailValor || !usernameValor || !passwordValor) {
         alert("Todos los campos son obligatorios.");
         return;
@@ -22,7 +22,7 @@ function registrarUsuario(e) {
 
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-    // Validar si el email o username ya existen
+    // validar si el email o username ya existen
     const existeUsuarioPorEmail = usuarios.find((usuario) => usuario.email === emailValor);
     const existeUsuarioPorUsername = usuarios.find((usuario) => usuario.username === usernameValor);
 
@@ -46,7 +46,7 @@ function registrarUsuario(e) {
     usuarios.push(nuevoUsuario);
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-    // GUARDAMOS EL USUARIO RECIÉN REGISTRADO COMO "LOGUEADO"
+    // GUARDAMOS EL USUARIO REGISTRADO COMO "LOGUEADO"
     localStorage.setItem('logueado', JSON.stringify({
         nombreCompleto: `${nuevoUsuario.nombre} ${nuevoUsuario.apellido}`,
         username: nuevoUsuario.username,
@@ -54,7 +54,7 @@ function registrarUsuario(e) {
     }));
 
     alert('¡Usuario creado con éxito! Ahora inicia sesión.');
-    window.location.href = 'login.html'; // Redirige al login para que el usuario inicie sesión
+    window.location.href = 'login.html'; // Redirige al login
 }
 
 registroForm.addEventListener('submit', registrarUsuario);

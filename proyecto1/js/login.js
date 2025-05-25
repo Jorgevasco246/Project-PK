@@ -1,5 +1,3 @@
-// js/login.js
-
 const loginForm = document.querySelector('form');
 loginForm.addEventListener('submit', ingresarUsuario);
 
@@ -9,7 +7,7 @@ function ingresarUsuario(e) {
     const userInput = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    // Validación básica de campos vacíos
+    // Validacionnnnn
     if (!userInput || !password) {
         alert("Por favor, ingresa tu usuario/email y contraseña.");
         return;
@@ -33,7 +31,7 @@ function ingresarUsuario(e) {
         return;
     }
 
-    // Si el usuario y la contraseña son correctos, guardamos la información para el perfil
+    // Si el usuario y la contraseña estan bien so guardamos la info para el perfil
     const usuarioLogueado = {
         nombreCompleto: `${usuarioEncontrado.nombre} ${usuarioEncontrado.apellido}`,
         username: usuarioEncontrado.username,
