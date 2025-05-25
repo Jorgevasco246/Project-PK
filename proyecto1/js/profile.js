@@ -10,19 +10,19 @@ const usuarios = [
                 id: 6,
                 nombre: "Charizard",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
-                descripcion: "Pokémon de tipo fuego/volador con gran poder de ataque"
+                descripcion: "Fire/flying type Pokémon with great attack power."
             },
             {
                 id: 9,
                 nombre: "Blastoise",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
-                descripcion: "Pokémon de tipo agua con poderosos cañones de agua"
+                descripcion: "Water-type Pokémon with powerful water cannons"
             },
             {
                 id: 3,
                 nombre: "Venusaur",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
-                descripcion: "Pokémon de tipo planta/veneno con una gran flor en su espalda"
+                descripcion: "Plant/poison type Pokémon with a large flower on its back."
             }
         ]
     },
@@ -37,19 +37,19 @@ const usuarios = [
                 id: 12,
                 nombre: "Butterfree",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
-                descripcion: "Pokémon de tipo bicho/volador con hermosas alas"
+                descripcion: "Bug/flying Pokémon with beautiful wings"
             },
             {
                 id: 4,
                 nombre: "Charmander",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-                descripcion: "Pokémon de tipo fuego con una llama en su cola"
+                descripcion: "Fire-type Pokémon with a flame in its tail."
             },
             {
                 id: 7,
                 nombre: "Squirtle",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-                descripcion: "Pokémon de tipo agua con un caparazón resistente"
+                descripcion: "Water-type Pokémon with a tough shell."
             }
         ]
     },
@@ -64,19 +64,19 @@ const usuarios = [
                 id: 15,
                 nombre: "Beedrill",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
-                descripcion: "Pokémon de tipo bicho/veneno con aguijones afilados"
+                descripcion: "Bug/poison Pokémon with sharp stingers"
             },
             {
                 id: 5,
                 nombre: "Charmeleon",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
-                descripcion: "Pokémon de tipo fuego, evolución de Charmander"
+                descripcion: "Fire-type Pokémon, evolution of Charmander"
             },
             {
                 id: 8,
                 nombre: "Wartortle",
                 imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
-                descripcion: "Pokémon de tipo agua, evolución de Squirtle"
+                descripcion: "Water-type Pokémon, evolution of Squirtle."
             }
         ]
     }

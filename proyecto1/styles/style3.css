@@ -4,8 +4,6 @@
     font-family: Inter;
 }
 
-
-
 body {
     height: 100vh;
     background-size: 100%;
@@ -89,11 +87,14 @@ a:hover {
     margin: 30px;
 }
 
-.todos-pokemones{
-    display: flex;
+.todos-pokemones {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
     color: white;
-    
+    width: 60%; 
 }
+
 .horizontal-text {
     display: flex;
     align-items: center;
@@ -103,17 +104,15 @@ a:hover {
 
 .interactions {
     display: flex;
-    justify-content: space-between; /* Espacia uniformemente */
-    gap: 20px; /* Espacio entre botones */
-    padding: 0 40px; /* Separación desde los bordes del contenedor */
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 40px;
     margin-top: 20px;
 }
-
-/* Estilo común para todos los botones */
 .edit,
 .favorite,
 .logoutButton {
-    flex: 1; /* Hace que todos los botones tengan el mismo ancho */
+    flex: 1; 
     padding: 10px 0;
     border-radius: 20px;
     text-align: center;
@@ -137,13 +136,13 @@ a:hover {
 
 .favorite {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     border: solid white 1px;
     color: white;
     padding-left: 10px;
     padding-right: 10px;
-    
+
 }
 
 .favoritoss2{ align-items: center;}
@@ -157,31 +156,46 @@ a:hover {
 .fathercontainer {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: space-around; 
     margin-top: 50px;
+    flex-wrap: wrap; 
 }
-
 .favoriteprofile {
-    width: 40%;
+    width: 30%; 
+    min-width: 250px; 
+    max-width: 300px;
+    margin: 15px; 
+    padding: 20px; 
+    box-sizing: border-box; 
+
     color: white;
     background: linear-gradient(#0000, #06192D, #0d2740);
-    padding: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
     border-radius: 12px;
     border: solid white 1px;
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column; 
     align-items: center;
-  
-
-    img {
-        width: 350px;
-    }
-
+    text-align: center; 
+}
+.favoriteprofile img {
+    display: block;
+    margin: 0 auto 10px auto; 
+    width: 150px; 
+    height: auto; 
 }
 
-.espacio {
-    margin-bottom: 14px;
+.favoriteprofile .nombredepokemon {
+    text-align: center; 
+    margin-bottom: 5px; 
+}
+
+.favoriteprofile #descripcion {
+    text-align: center;
+}
+
+.favoriteprofile .espacio {
+    text-align: center; 
+    margin-bottom: 15px; 
 }
