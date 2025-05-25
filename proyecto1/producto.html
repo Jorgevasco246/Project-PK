@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../proyecto1/styles/producto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat+Brush&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pangolin&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat+Brush&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fjalla+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pangolin&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://pokeapi.co/api/v2/pokemon/1">
+  <link rel="icon" type="image/vnd.icon" href="favicon.ico">
+
+  <title>producto</title>
+
+  <nav>
+    <ul class="navlink">
+      <li><a href="main.html">Home</a> </li>
+      <li><a href="About us.html">About us</a></li>
+      <li><a href="Gallery.html">Catalog</a></li>
+    </ul>
+
+    <img src="assets/logo pk.png" alt="Pokemon Logo" class="logo">
+
+    <div class="iconos">
+      <span class="fa fa-search"></span>
+      <a href="login.html"><span class="fa fa-user"></span></a>
+    </div>
+  </nav>
+</head>
+
+<body>
+  <div class="padretotal">
+    <div class="container">
+      <main class="profile-container">
+        <h1>Pokémon</h1>
+        <div class="rating">⭐⭐⭐⭐⭐ <span></span></div>
+        <p class="descripcion"></p>
+        <div class="details">
+          <div class="primero">
+            <p><strong>Type:</strong> <span class="tipo"></span></p>
+            <p><strong>HP:</strong> <span class="hp"></span></p>
+            <p><strong>Weight:</strong> <span class="peso"></span></p>
+            <p><strong>Height:</strong> <span class="altura"></span></p>
+            <p><strong>Abilities:</strong> <span class="habilidades"></span></p>
+          </div>
+          <div class="segundo">
+            <p><strong>Attack:</strong> <span class="ataque"></span></p>
+            <p><strong>Defense:</strong> <span class="defensa"></span></p>
+            <p><strong>Speed:</strong> <span class="velocidad"></span></p>
+            <p><strong>Special Attack:</strong> <span class="ataqueEspecial"></span></p>
+            <p><strong>Special Defense:</strong> <span class="defensaEspecial"></span></p>
+          </div>
+        </div>
+      </main>
+
+      <div class="image-section">
+        <img id="pokemon-img" src="" alt="Pokémon sprite" />
+        <button class="fav-button">Add to favorites</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="../proyecto1/js/producto.js"></script>
+</body>
+
+</html>
