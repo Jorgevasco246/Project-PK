@@ -83,19 +83,15 @@ const usuarios = [
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var loggedInUsername = urlParams.get('username');
+    
+    let loggedInUsername = localStorage.getItem('loggedInUsername');
 
-    var currentUser = null;
-
-    if (loggedInUsername) {
-        for (var i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].username === loggedInUsername) {
-                currentUser = usuarios[i];
-                break;
-            }
-        }
+    if (!loggedInUsername) {
+        const urlParams = new URLSearchParams(window.location.search);
+        loggedInUsername = urlParams.get('username');
     }
+
+    const currentUser = usuarios.find(user => user.username === loggedInUsername);
 
     if (currentUser) {
         document.getElementById("profileUsername").textContent = currentUser.username;
@@ -103,101 +99,59 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("profileAge").textContent = currentUser.age;
         document.getElementById("profileEmail").textContent = currentUser.email;
 
-   
-        if (currentUser.favoritePokemons && currentUser.favoritePokemons.length >= 3) {
-            // Primer Pokémon
-            const favoritoss1 = document.querySelector(".favoritoss");
-            if (favoritoss1) {
-        
-                const titulo = favoritoss1.querySelector(".espacio");
-                favoritoss1.innerHTML = '';
-                favoritoss1.appendChild(titulo);
-                
- 
-                const img1 = document.createElement("img");
-                img1.src = currentUser.favoritePokemons[0].imagen;
-                img1.alt = currentUser.favoritePokemons[0].nombre;
-                img1.style.width = "150px";
-                img1.style.marginTop = "15px";
-                favoritoss1.appendChild(img1);
-                
-            
-                const nombrePokemon1 = document.createElement("h2");
-                nombrePokemon1.className = "nombredepokemon";
-                nombrePokemon1.textContent = currentUser.favoritePokemons[0].nombre;
-                nombrePokemon1.style.marginTop = "10px";
-                favoritoss1.appendChild(nombrePokemon1);
-     
-                const descripcion1 = document.createElement("p");
-                descripcion1.id = "descripcion";
-                descripcion1.textContent = currentUser.favoritePokemons[0].descripcion;
-                favoritoss1.appendChild(descripcion1);
-            }
-            
-            // Segundo Pokémon
-            const favoritoss2 = document.querySelector(".favoritoss2");
-            if (favoritoss2) {
+        function renderFavoritePokemon(pokemonData, selector) {
+            const container = document.querySelector(selector);
+            if (container && pokemonData) {
+                const titulo = container.querySelector(".espacio");
+                container.innerHTML = '';
+                if (titulo) {
+                    container.appendChild(titulo);
+                }
 
-                const titulo = favoritoss2.querySelector(".espacio");
-                favoritoss2.innerHTML = '';
-                favoritoss2.appendChild(titulo);
+                const img = document.createElement("img");
+                img.src = pokemonData.imagen;
+                img.alt = pokemonData.nombre;
+                container.appendChild(img);
 
-                const img2 = document.createElement("img");
-                img2.src = currentUser.favoritePokemons[1].imagen;
-                img2.alt = currentUser.favoritePokemons[1].nombre;
-                img2.style.width = "150px";
-                img2.style.marginTop = "15px";
-                favoritoss2.appendChild(img2);
-                
-     
-                const nombrePokemon2 = document.createElement("h2");
-                nombrePokemon2.className = "nombredepokemon";
-                nombrePokemon2.textContent = currentUser.favoritePokemons[1].nombre;
-                nombrePokemon2.style.marginTop = "10px";
-                favoritoss2.appendChild(nombrePokemon2);
-   
-                const descripcion2 = document.createElement("p");
-                descripcion2.id = "descripcion";
-                descripcion2.textContent = currentUser.favoritePokemons[1].descripcion;
-                favoritoss2.appendChild(descripcion2);
-            }
-            
-            // Tercer Pokémon
-            const favoritoss3 = document.querySelector(".favoritoss3");
-            if (favoritoss3) {
-          
-                const titulo = favoritoss3.querySelector(".espacio");
-                favoritoss3.innerHTML = '';
-                favoritoss3.appendChild(titulo);
-       
-                const img3 = document.createElement("img");
-                img3.src = currentUser.favoritePokemons[2].imagen;
-                img3.alt = currentUser.favoritePokemons[2].nombre;
-                img3.style.width = "150px";
-                img3.style.marginTop = "15px";
-                favoritoss3.appendChild(img3);
-                
-           
-                const nombrePokemon3 = document.createElement("h2");
-                nombrePokemon3.className = "nombredepokemon";
-                nombrePokemon3.textContent = currentUser.favoritePokemons[2].nombre;
-                nombrePokemon3.style.marginTop = "10px";
-                favoritoss3.appendChild(nombrePokemon3);
-                
-               
-                const descripcion3 = document.createElement("p");
-                descripcion3.id = "descripcion";
-                descripcion3.textContent = currentUser.favoritePokemons[2].descripcion;
-                favoritoss3.appendChild(descripcion3);
+                const nombrePokemon = document.createElement("h2");
+                nombrePokemon.className = "nombredepokemon";
+                nombrePokemon.textContent = pokemonData.nombre;
+                container.appendChild(nombrePokemon);
+
+                const descripcion = document.createElement("p");
+                descripcion.id = "descripcion";
+                descripcion.textContent = pokemonData.descripcion;
+                container.appendChild(descripcion);
             }
         }
+
+        if (currentUser.favoritePokemons && currentUser.favoritePokemons.length > 0) {
+            renderFavoritePokemon(currentUser.favoritePokemons[0], ".favoriteprofile:nth-child(1) .favoritoss");
+            renderFavoritePokemon(currentUser.favoritePokemons[1], ".favoriteprofile:nth-child(2) .favoritoss2");
+            renderFavoritePokemon(currentUser.favoritePokemons[2], ".favoriteprofile:nth-child(3) .favoritoss3");
+        }
+
+        const moreInfoButtons = document.querySelectorAll(".more-info-btn");
+        moreInfoButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const pokemonIndex = parseInt(this.dataset.pokemonIndex);
+                if (currentUser.favoritePokemons && currentUser.favoritePokemons[pokemonIndex]) {
+                    const pokemonData = currentUser.favoritePokemons[pokemonIndex];
+                    localStorage.setItem("pokemonSeleccionado", JSON.stringify(pokemonData));
+                    window.location.href = "more-info.html";
+                } else {
+                    console.error("No se encontró el Pokémon en el índice:", pokemonIndex);
+                }
+            });
+        });
     } else {
         window.location.href = "login.html";
     }
-    
-    var logoutButton = document.getElementById("logoutButton");
+
+    const logoutButton = document.getElementById("logoutButton");
     if (logoutButton) {
         logoutButton.addEventListener("click", function() {
+            localStorage.removeItem('loggedInUsername');
             window.location.href = "login.html";
         });
     }

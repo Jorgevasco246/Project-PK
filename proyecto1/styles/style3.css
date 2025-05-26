@@ -9,7 +9,7 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: black;
-    background-image: url(../assets/bacckprofile.png);
+    
 }
 
 header {
@@ -198,4 +198,21 @@ a:hover {
 .favoriteprofile .espacio {
     text-align: center; 
     margin-bottom: 15px; 
+}
+.more-info-btn {
+    background-color: #013e08; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 15px; 
+    transition: background-color 0.3s ease;
+    width: 80%; 
+    max-width: 150px; 
+}
+
+.more-info-btn:hover {
+    background-color: #00cd33; 
 }
