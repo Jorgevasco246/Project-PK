@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (usuarioLogueado && (currentPage === 'login.html' || currentPage === 'signup.html')) {
-        alert('Ya has iniciado sesión. Redirigiendo a tu perfil.');
         window.location.href = 'profile.html';
     }
     if (currentPage === 'profile.html' && usuarioLogueado) {
