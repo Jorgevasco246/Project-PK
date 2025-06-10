@@ -58,6 +58,41 @@ nav {
     font-weight: bold;
 }
 
+
+
+.logoutButton {
+    
+    padding: 8px 20px 8px 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+
+.logoutButton {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.loginn {
+    background-color: #000;
+   border: solid white 1px;
+    margin-right: -70px;
+}
+
+
+
+.logoutButton:hover {
+    background-color:#E1991C ;
+ color: #ffffff;
+}
+
+
+
 .logo {
     height: 200px;
     position: absolute;
