@@ -1,6 +1,14 @@
 const loginForm = document.querySelector('form');
 loginForm.addEventListener('submit', ingresarUsuario);
 
+
+ 
+  var imgLogin = document.querySelector(".imagen img");
+  imgLogin.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png";
+  imgLogin.style.width = "550px";
+
+
+
 function ingresarUsuario(e) {
     e.preventDefault();
 

@@ -7,18 +7,14 @@
 }
 
 body {
-    background-color: #000;
+    background-color: #000000;
     color: #fff;
     background-image: url(../assets/imagen\ arriba.png);
-    background-size: 100%;
+  background-size: 100%;
     background-repeat: no-repeat;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
+
 
 header {
     display: flex;
@@ -36,6 +32,7 @@ nav {
     padding: 20px;
     padding-bottom: 0;
     height: 40px;
+    background-color: #000;
 
     a {
         color: white;
@@ -60,6 +57,41 @@ nav {
     text-decoration: none;
     font-weight: bold;
 }
+
+
+
+.logoutButton {
+    
+    padding: 8px 20px 8px 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+
+.logoutButton {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.loginn {
+    background-color: #000;
+   border: solid white 1px;
+    margin-right: -70px;
+}
+
+
+
+.logoutButton:hover {
+    background-color:#E1991C ;
+ color: #ffffff;
+}
+
+
 
 .logo {
     height: 200px;
@@ -90,6 +122,7 @@ nav {
 .hero {
     position: relative;
     height: 100vh;
+     background-color: #000;
     
    
     display: flex;
@@ -102,6 +135,7 @@ nav {
     padding-left: 10%;
     position: relative;
     z-index: 2;
+   
 }
 
 .hero h1 {
@@ -119,8 +153,10 @@ nav {
     text-transform: none;
 }
 
+
+
 .subscribe-btn {
-    display: inline-block;
+    
     padding: 10px 40px;
     border: 2px solid #fff;
     border-radius: 30px;
@@ -198,28 +234,7 @@ nav {
     margin-bottom: 30px;
 }
 
-.pokemon-cards {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-}
 
-.pokemon-cards img {
-    width: 600px;
-    height: auto;
-}
-
-.card-charizard {
-    background: linear-gradient(to bottom, #8B4513, #D2691E);
-}
-
-.card-lucario {
-    background: linear-gradient(to bottom, #1E90FF, #00BFFF);
-}
-
-.card-ivysaur {
-    background: linear-gradient(to bottom, #228B22, #7CFC00);
-}
 
 .pokemon-name {
     position: absolute;
@@ -343,12 +358,21 @@ nav {
     cursor: pointer;
 }
 
+
+#favorite{
+
+    background-color: #000;
+    color: white;
+
+}
 .subscribe {
     background-image: url('../assets/fondo\ ultimo.png ');
-    background-size: cover;
+  width: 100%;
+  background-color: #000;
+  color: white;
     background-position: center;
-    padding: 60px 0;
-    position: relative;
+
+  
 }
 
 .subscribe-content {
@@ -376,6 +400,9 @@ nav {
     color: #fff;
 }
 
+.carrusel {
+    color: white;
+}
 .form-row {
     display: flex;
     gap: 15px;

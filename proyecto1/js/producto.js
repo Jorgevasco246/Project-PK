@@ -6,266 +6,166 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  
-  const pokemones = [
-    {
-      id: 1,
-      nombre: "Bulbasaur",
-      tipos: ["grass", "poison"],
-      peso: 6.9,
-      altura: 0.7,
-      habilidades: ["overgrow", "chlorophyll"],
-      hp: 45,
-      ataque: 49,
-      defensa: 49,
-      velocidad: 45,
-      ataqueEspecial: 65,
-      defensaEspecial: 65,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-    },
-    {
-      id: 2,
-      nombre: "Ivysaur",
-      tipos: ["grass", "poison"],
-      peso: 13.0,
-      altura: 1.0,
-      habilidades: ["overgrow", "chlorophyll"],
-      hp: 60,
-      ataque: 62,
-      defensa: 63,
-      velocidad: 60,
-      ataqueEspecial: 80,
-      defensaEspecial: 80,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
-    },
-    {
-      id: 3,
-      nombre: "Venusaur",
-      tipos: ["grass", "poison"],
-      peso: 100.0,
-      altura: 2.0,
-      habilidades: ["overgrow", "chlorophyll"],
-      hp: 80,
-      ataque: 82,
-      defensa: 83,
-      velocidad: 80,
-      ataqueEspecial: 100,
-      defensaEspecial: 100,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
-    },
-    {
-      id: 4,
-      nombre: "Charmander",
-      tipos: ["fire"],
-      peso: 8.5,
-      altura: 0.6,
-      habilidades: ["blaze", "solar-power"],
-      hp: 39,
-      ataque: 52,
-      defensa: 43,
-      velocidad: 65,
-      ataqueEspecial: 60,
-      defensaEspecial: 50,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-    },
-    {
-      id: 5,
-      nombre: "Charmeleon",
-      tipos: ["fire"],
-      peso: 19.0,
-      altura: 1.1,
-      habilidades: ["blaze", "solar-power"],
-      hp: 58,
-      ataque: 64,
-      defensa: 58,
-      velocidad: 80,
-      ataqueEspecial: 80,
-      defensaEspecial: 65,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
-    },
-    {
-      id: 6,
-      nombre: "Charizard",
-      tipos: ["fire", "flying"],
-      peso: 90.5,
-      altura: 1.7,
-      habilidades: ["blaze", "solar-power"],
-      hp: 78,
-      ataque: 84,
-      defensa: 78,
-      velocidad: 100,
-      ataqueEspecial: 109,
-      defensaEspecial: 85,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
-    },
-    {
-      id: 7,
-      nombre: "Squirtle",
-      tipos: ["water"],
-      peso: 9.0,
-      altura: 0.5,
-      habilidades: ["torrent", "rain-dish"],
-      hp: 44,
-      ataque: 48,
-      defensa: 65,
-      velocidad: 43,
-      ataqueEspecial: 50,
-      defensaEspecial: 64,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-    },
-    {
-      id: 8,
-      nombre: "Wartortle",
-      tipos: ["water"],
-      peso: 22.5,
-      altura: 1.0,
-      habilidades: ["torrent", "rain-dish"],
-      hp: 59,
-      ataque: 63,
-      defensa: 80,
-      velocidad: 58,
-      ataqueEspecial: 65,
-      defensaEspecial: 80,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
-    },
-    {
-      id: 9,
-      nombre: "Blastoise",
-      tipos: ["water"],
-      peso: 85.5,
-      altura: 1.6,
-      habilidades: ["torrent", "rain-dish"],
-      hp: 79,
-      ataque: 83,
-      defensa: 100,
-      velocidad: 78,
-      ataqueEspecial: 85,
-      defensaEspecial: 105,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
-    },
-    {
-      id: 10,
-      nombre: "Caterpie",
-      tipos: ["bug"],
-      peso: 2.9,
-      altura: 0.3,
-      habilidades: ["shield-dust", "run-away"],
-      hp: 45,
-      ataque: 30,
-      defensa: 35,
-      velocidad: 45,
-      ataqueEspecial: 20,
-      defensaEspecial: 20,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"
-    },
-    {
-      id: 11,
-      nombre: "Metapod",
-      tipos: ["bug"],
-      peso: 9.9,
-      altura: 0.7,
-      habilidades: ["shed-skin"],
-      hp: 50,
-      ataque: 20,
-      defensa: 55,
-      velocidad: 30,
-      ataqueEspecial: 25,
-      defensaEspecial: 25,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"
-    },
-    {
-      id: 12,
-      nombre: "Butterfree",
-      tipos: ["bug", "flying"],
-      peso: 32.0,
-      altura: 1.1,
-      habilidades: ["compound-eyes", "tinted-lens"],
-      hp: 60,
-      ataque: 45,
-      defensa: 50,
-      velocidad: 70,
-      ataqueEspecial: 90,
-      defensaEspecial: 80,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"
-    },
-    {
-      id: 13,
-      nombre: "Weedle",
-      tipos: ["bug", "poison"],
-      peso: 3.2,
-      altura: 0.3,
-      habilidades: ["shield-dust", "run-away"],
-      hp: 40,
-      ataque: 35,
-      defensa: 30,
-      velocidad: 50,
-      ataqueEspecial: 20,
-      defensaEspecial: 20,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
-    },
-    {
-      id: 14,
-      nombre: "Kakuna",
-      tipos: ["bug", "poison"],
-      peso: 10.0,
-      altura: 0.6,
-      habilidades: ["shed-skin"],
-      hp: 45,
-      ataque: 25,
-      defensa: 50,
-      velocidad: 35,
-      ataqueEspecial: 25,
-      defensaEspecial: 25,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
-    },
-    {
-      id: 15,
-      nombre: "Beedrill",
-      tipos: ["bug", "poison"],
-      peso: 29.5,
-      altura: 1.0,
-      habilidades: ["swarm", "sniper"],
-      hp: 65,
-      ataque: 90,
-      defensa: 40,
-      velocidad: 75,
-      ataqueEspecial: 45,
-      defensaEspecial: 80,
-      imagen: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
-    }
-  ];
+  // Cargar datos del Pokémon desde la API
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonSeleccionado.id}`)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error('No se pudo obtener la información del Pokémon');
+      }
+      return response.json();
+    })
+    .then(function (pokemon) {
+      // Actualizar el título de la página
+      var nombre = pokemon.name;
+      nombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+      document.title = nombre;
 
- 
-  const pokemon = pokemones.find(p => p.id === pokemonSeleccionado.id);
-  
-  if (!pokemon) {
-    console.error("Pokémon no encontrado");
-    return;
-  }
+      // Actualizar la imagen del Pokémon
+      var pokemonImg = document.getElementById("pokemon-img");
+      if (pokemonImg) {
+        pokemonImg.src = pokemon.sprites.other['official-artwork'].front_default;
+        pokemonImg.alt = nombre;
+      }
 
-  document.title = pokemon.nombre;
+      // Obtener los tipos del Pokémon
+      var tipos = "";
+      for (var i = 0; i < pokemon.types.length; i++) {
+        if (i > 0) {
+          tipos += "/";
+        }
+        tipos += pokemon.types[i].type.name;
+      }
 
+      // Obtener las habilidades del Pokémon
+      var habilidades = "";
+      for (var i = 0; i < pokemon.abilities.length; i++) {
+        if (i > 0) {
+          habilidades += ", ";
+        }
+        habilidades += pokemon.abilities[i].ability.name;
+      }
 
-  const pokemonImg = document.getElementById("pokemon-img");
-  if (pokemonImg) {
-    pokemonImg.src = pokemon.imagen;
-    pokemonImg.alt = pokemon.nombre;
-  }
+      // Actualizar la información del Pokémon en la página
+      document.querySelector("h1").textContent = nombre;
+      document.querySelector(".descripcion").textContent = nombre + " es un Pokémon de tipo " + tipos + ".";
+      document.querySelector(".tipo").textContent = tipos.replace(/\//g, ", ");
+      document.querySelector(".peso").textContent = (pokemon.weight / 10).toFixed(1) + " kg";
+      document.querySelector(".altura").textContent = (pokemon.height / 10).toFixed(1) + " m";
+      document.querySelector(".habilidades").textContent = habilidades;
 
+      // Actualizar las estadísticas del Pokémon
+      var hp = 0;
+      var ataque = 0;
+      var defensa = 0;
+      var velocidad = 0;
+      var ataqueEspecial = 0;
+      var defensaEspecial = 0;
 
-  document.querySelector("h1").textContent = pokemon.nombre;
-  document.querySelector(".descripcion").textContent = `${pokemon.nombre} es un Pokémon de tipo ${pokemon.tipos.join('/')}.`;
-  document.querySelector(".tipo").textContent = pokemon.tipos.join(", ");
-  document.querySelector(".peso").textContent = `${pokemon.peso} kg`;
-  document.querySelector(".altura").textContent = `${pokemon.altura} m`;
-  document.querySelector(".habilidades").textContent = pokemon.habilidades.join(", ");
+      for (var i = 0; i < pokemon.stats.length; i++) {
+        var statName = pokemon.stats[i].stat.name;
+        var statValue = pokemon.stats[i].base_stat;
 
-  
-  
-  document.querySelector(".hp").textContent = pokemon.hp;
-  document.querySelector(".ataque").textContent = pokemon.ataque;
-  document.querySelector(".defensa").textContent = pokemon.defensa;
-  document.querySelector(".velocidad").textContent = pokemon.velocidad;
-  document.querySelector(".ataqueEspecial").textContent = pokemon.ataqueEspecial;
-  document.querySelector(".defensaEspecial").textContent = pokemon.defensaEspecial;
+        if (statName === 'hp') {
+          hp = statValue;
+        } else if (statName === 'attack') {
+          ataque = statValue;
+        } else if (statName === 'defense') {
+          defensa = statValue;
+        } else if (statName === 'speed') {
+          velocidad = statValue;
+        } else if (statName === 'special-attack') {
+          ataqueEspecial = statValue;
+        } else if (statName === 'special-defense') {
+          defensaEspecial = statValue;
+        }
+      }
+
+      document.querySelector(".hp").textContent = hp;
+      document.querySelector(".ataque").textContent = ataque;
+      document.querySelector(".defensa").textContent = defensa;
+      document.querySelector(".velocidad").textContent = velocidad;
+      document.querySelector(".ataqueEspecial").textContent = ataqueEspecial;
+      document.querySelector(".defensaEspecial").textContent = defensaEspecial;
+    })
+    .catch(function (error) {
+      console.error("Error al cargar el Pokémon:", error);
+      alert("No se pudo cargar la información del Pokémon. Volviendo a la galería...");
+      window.location.href = "Gallery.html";
+    });
 });
+
+
+
+const galeria = document.querySelector("#galeria2");
+const TOTAL_POKEMON = 15;
+
+function createCard(name, imageURL, tipos, index) {
+  var div = document.createElement("div");
+  div.classList.add("pokem");
+
+  var nombre = document.createElement("h3");
+  nombre.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+
+  var imagen = document.createElement("img");
+  imagen.src = imageURL;
+  imagen.alt = name;
+
+  var descripcion = document.createElement("p");
+
+  var tiposTexto = "";
+  for (var i = 0; i < tipos.length; i++) {
+    if (i > 0) {
+      tiposTexto += "/";
+    }
+    tiposTexto += tipos[i];
+  }
+descripcion.textContent = name + " is a " + tiposTexto + " type Pokémon.";
+
+  var botonInfo = document.createElement("button");
+  botonInfo.textContent = "More information";
+  botonInfo.onclick = function() {
+    var pokemonSeleccionado = {
+      id: index,
+      nombre: name.charAt(0).toUpperCase() + name.slice(1)
+    };
+    localStorage.setItem("pokemonSeleccionado", JSON.stringify(pokemonSeleccionado));
+    window.location.href = "producto.html";
+  };
+
+  var botonFav = document.createElement("button");
+  botonFav.textContent = "Add to favorites";
+  botonFav.classList.add("favoritos");
+
+  div.appendChild(imagen);
+  div.appendChild(nombre);
+  div.appendChild(descripcion);
+  div.appendChild(botonInfo);
+  div.appendChild(botonFav);
+  return div;
+}
+
+for (var index = 1; index <= TOTAL_POKEMON; index++) {
+  fetch("https://pokeapi.co/api/v2/pokemon/" + index)
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(pokemon) {
+      var tipos = [];
+      for (var i = 0; i < pokemon.types.length; i++) {
+        tipos.push(pokemon.types[i].type.name);
+      }
+      
+      var card = createCard(
+        pokemon.name,
+        pokemon.sprites.other['official-artwork'].front_default,
+        tipos,
+        pokemon.id
+      );
+      
+      galeria.appendChild(card);
+    })
+    .catch(function(error) {
+      console.error("Error al obtener Pokémon:", error);
+    });
+}
+
