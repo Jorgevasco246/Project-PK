@@ -178,3 +178,32 @@ button:hover {
 p {
     font-size: 12px;
 }
+/* buscador */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#Buscador {
+    width: 100%;
+    max-width: 700px;
+    padding: 18px 25px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 50px;
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#Buscador::placeholder {
+    color: #888;
+}
+
+#Buscador:focus {
+    border-color: #444;
+    background-color: #222;
+}

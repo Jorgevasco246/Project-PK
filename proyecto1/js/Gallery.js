@@ -42,3 +42,19 @@ for (let index = 1; index <= 151; index++) {
     })
     .catch(error => console.error("Error al obtener Pokémon:", error));
 }
+// BUSCADOR
+const searchInput = document.querySelector("#Buscador");
+
+searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const pokemonCards = document.querySelectorAll('.pokem');
+    
+    pokemonCards.forEach(card => {
+        const pokemonName = card.querySelector('h3').textContent.toLowerCase();
+        if (pokemonName.includes(searchTerm)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
