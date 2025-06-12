@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ageDisplay = document.getElementById('profileAge');
     const emailDisplay = document.getElementById('profileEmail');
 
-    const editProfileButton = document.getElementById('editProfileButton');
+   
     const logoutButton = document.getElementById('logoutButton'); 
 
     const usuarioLogueado = JSON.parse(localStorage.getItem('logueado'));
@@ -22,19 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     } else {
         window.location.href = 'login.html';
-    }
-
-    if (editProfileButton) {
-        editProfileButton.addEventListener('click', () => {
-            window.location.href = 'edit_profile.html';
-        });
-    }
-
-    if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            localStorage.removeItem('logueado');
-            localStorage.removeItem('userName');
-            window.location.href = 'login.html';
-        });
     }
 });
