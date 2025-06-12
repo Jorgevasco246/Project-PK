@@ -227,7 +227,7 @@ h1 {
     color: white;
 }
 
-#galeria {
+#galeria3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 100fr));
   gap: 0.5px;
@@ -313,6 +313,7 @@ button {
     text-align: center;
     display: block;
     margin: auto;
+    margin-top: 15px;
     margin-bottom: 15px;
     text-decoration: none;
 }
@@ -596,4 +597,10 @@ footer {
     .team-member h3 {
         font-size: 18px;
     }
+}
+
+h3{ color: white;}
+
+p {
+    color: white;
 }

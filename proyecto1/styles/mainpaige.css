@@ -7,7 +7,6 @@
 }
 
 body {
-    background-color: #000000;
     color: #fff;
     background-image: url(../assets/imagen\ arriba.png);
   background-size: 100%;
@@ -32,7 +31,7 @@ nav {
     padding: 20px;
     padding-bottom: 0;
     height: 40px;
-    background-color: #000;
+   
 
     a {
         color: white;
@@ -122,8 +121,6 @@ nav {
 .hero {
     position: relative;
     height: 100vh;
-     background-color: #000;
-    
    
     display: flex;
     align-items: center;

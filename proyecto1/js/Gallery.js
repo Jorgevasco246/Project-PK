@@ -16,9 +16,7 @@ function createCard(name, imageURL, tipos, index) {
   
   var tiposTexto = "";
   for (var i = 0; i < tipos.length; i++) {
-    if (i > 0) {
-      tiposTexto += "/";
-    }
+    if (i > 0) tiposTexto += "/";
     tiposTexto += tipos[i];
   }
   
@@ -39,6 +37,33 @@ function createCard(name, imageURL, tipos, index) {
   botonFav.textContent = "Add to favorites";
   botonFav.classList.add("favoritos");
 
+  botonFav.onclick = function() {
+    var favoritos = JSON.parse(localStorage.getItem("pokemonFavoritos")) || [];
+    var yaEstaEnFavoritos = false;
+    
+    for (var i = 0; i < favoritos.length; i++) {
+      if (favoritos[i].id === index) {
+        yaEstaEnFavoritos = true;
+        break;
+      }
+    }
+    
+    if (!yaEstaEnFavoritos) {
+      var pokemonFavorito = {
+        id: index,
+        nombre: name,
+        imagen: imageURL,
+        tipos: tiposTexto
+      };
+      
+      favoritos.push(pokemonFavorito);
+      localStorage.setItem("pokemonFavoritos", JSON.stringify(favoritos));
+      alert("¡Pokémon agregado a favoritos!");
+    } else {
+      alert("¡Este Pokémon ya está en tus favoritos!");
+    }
+  };
+
   div.appendChild(imagen);
   div.appendChild(nombre);
   div.appendChild(descripcion);
@@ -49,9 +74,7 @@ function createCard(name, imageURL, tipos, index) {
 
 for (var index = 1; index <= TOTAL_POKEMON; index++) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + index)
-    .then(function(res) {
-      return res.json();
-    })
+    .then(function(res) { return res.json(); })
     .then(function(pokemon) {
       var tipos = [];
       for (var i = 0; i < pokemon.types.length; i++) {

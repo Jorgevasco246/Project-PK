@@ -15,16 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then(function (pokemon) {
-      // Actualizar el título de la página
+
       var nombre = pokemon.name;
       nombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
       document.title = nombre;
 
-      // Actualizar la imagen del Pokémon
+
       var pokemonImg = document.getElementById("pokemon-img");
       if (pokemonImg) {
         pokemonImg.src = pokemon.sprites.other['official-artwork'].front_default;
-        pokemonImg.alt = nombre;
       }
 
       // Obtener los tipos del Pokémon
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         habilidades += pokemon.abilities[i].ability.name;
       }
 
-      // Actualizar la información del Pokémon en la página
+
       document.querySelector("h1").textContent = nombre;
       document.querySelector(".descripcion").textContent = nombre + " es un Pokémon de tipo " + tipos + ".";
       document.querySelector(".tipo").textContent = tipos.replace(/\//g, ", ");
@@ -86,6 +85,36 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".velocidad").textContent = velocidad;
       document.querySelector(".ataqueEspecial").textContent = ataqueEspecial;
       document.querySelector(".defensaEspecial").textContent = defensaEspecial;
+      var boton2 = document.querySelector("#botonFav2")
+      
+      
+      boton2.onclick = function () {
+        console.log('hola');
+        var favoritos = JSON.parse(localStorage.getItem("pokemonFavoritos")) || [];
+        var yaEstaEnFavoritos = false;
+
+        for (var i = 0; i < favoritos.length; i++) {
+          if (favoritos[i].id === pokemonSeleccionado.id) {
+            yaEstaEnFavoritos = true;
+            break;
+          }
+        }
+
+        if (!yaEstaEnFavoritos) {
+          var pokemonFavorito = {
+            id: pokemonSeleccionado.id,
+            nombre: nombre,
+            imagen: pokemonImg.src,
+            tipos: tipos
+          };
+
+          favoritos.push(pokemonFavorito);
+          localStorage.setItem("pokemonFavoritos", JSON.stringify(favoritos));
+          alert("¡Pokémon agregado a favoritos!");
+        } else {
+          alert("¡Este Pokémon ya está en tus favoritos!");
+        }
+      };
     })
     .catch(function (error) {
       console.error("Error al cargar el Pokémon:", error);
@@ -114,16 +143,15 @@ function createCard(name, imageURL, tipos, index) {
 
   var tiposTexto = "";
   for (var i = 0; i < tipos.length; i++) {
-    if (i > 0) {
-      tiposTexto += "/";
-    }
+    if (i > 0) tiposTexto += "/";
     tiposTexto += tipos[i];
   }
-descripcion.textContent = name + " is a " + tiposTexto + " type Pokémon.";
+
+  descripcion.textContent = name + " is a " + tiposTexto + " type Pokémon.";
 
   var botonInfo = document.createElement("button");
   botonInfo.textContent = "More information";
-  botonInfo.onclick = function() {
+  botonInfo.onclick = function () {
     var pokemonSeleccionado = {
       id: index,
       nombre: name.charAt(0).toUpperCase() + name.slice(1)
@@ -136,6 +164,35 @@ descripcion.textContent = name + " is a " + tiposTexto + " type Pokémon.";
   botonFav.textContent = "Add to favorites";
   botonFav.classList.add("favoritos");
 
+
+
+  botonFav.onclick = function () {
+    var favoritos = JSON.parse(localStorage.getItem("pokemonFavoritos")) || [];
+    var yaEstaEnFavoritos = false;
+
+    for (var i = 0; i < favoritos.length; i++) {
+      if (favoritos[i].id === index) {
+        yaEstaEnFavoritos = true;
+        break;
+      }
+    }
+
+    if (!yaEstaEnFavoritos) {
+      var pokemonFavorito = {
+        id: index,
+        nombre: name,
+        imagen: imageURL,
+        tipos: tiposTexto
+      };
+
+      favoritos.push(pokemonFavorito);
+      localStorage.setItem("pokemonFavoritos", JSON.stringify(favoritos));
+      alert("¡Pokémon agregado a favoritos!");
+    } else {
+      alert("¡Este Pokémon ya está en tus favoritos!");
+    }
+  };
+
   div.appendChild(imagen);
   div.appendChild(nombre);
   div.appendChild(descripcion);
@@ -146,26 +203,23 @@ descripcion.textContent = name + " is a " + tiposTexto + " type Pokémon.";
 
 for (var index = 1; index <= TOTAL_POKEMON; index++) {
   fetch("https://pokeapi.co/api/v2/pokemon/" + index)
-    .then(function(res) {
-      return res.json();
-    })
-    .then(function(pokemon) {
+    .then(function (res) { return res.json(); })
+    .then(function (pokemon) {
       var tipos = [];
       for (var i = 0; i < pokemon.types.length; i++) {
         tipos.push(pokemon.types[i].type.name);
       }
-      
+
       var card = createCard(
         pokemon.name,
         pokemon.sprites.other['official-artwork'].front_default,
         tipos,
         pokemon.id
       );
-      
+
       galeria.appendChild(card);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error al obtener Pokémon:", error);
     });
 }
-
